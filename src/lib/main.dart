@@ -13,9 +13,9 @@ void main() {
         // Patern to be used (more on this later)
         final pattern = request.url.queryParameters['p'] ?? '';
         // Main, secondary & text colors to be used
-        final pcolor = request.url.queryParameters['pcolor'] ?? '#040703';
-        final scolor = request.url.queryParameters['scolor'] ?? '#055C13';
-        final text_color = request.url.queryParameters['text_color'] ?? '#FFFFFF';
+        final pcolor = '#' + (request.url.queryParameters['pcolor'] ?? '040703');
+        final scolor = '#' + (request.url.queryParameters['scolor'] ?? '055C13');
+        final text_color = '#' + (request.url.queryParameters['text_color'] ?? 'FFFFFF');
         // Returns the image with the proper headers:
         final svg = generateOGImage(text, int.parse(height), int.parse(length), pattern, pcolor, scolor, text_color);
         final headers = Headers({'Content-Type': 'image/svg+xml', 'Cache-Control': 'public, max-age=3600'});
